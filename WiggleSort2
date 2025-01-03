@@ -1,0 +1,25 @@
+class Solution {
+    public void wiggleSort(int[] nums) {
+        Arrays.sort(nums);
+
+        
+        int[] result = new int[nums.length];
+        
+        
+        int left = (nums.length - 1) / 2;
+        int right = nums.length - 1;
+
+        
+        for (int i = 0; i < nums.length; i++) {
+            if (i % 2 == 0) {
+                result[i] = nums[left--]; // Even indices get elements from the smaller half
+            } else {
+                result[i] = nums[right--]; // Odd indices get elements from the larger half
+            }
+        }
+
+        // Copy the result array back into the original array
+        System.arraycopy(result, 0, nums, 0, nums.length);
+    
+    }
+}
